@@ -1,8 +1,13 @@
-main: es.projectalpha.pvp.PvpManager
-name: PvPManager
+main: me.wikyfg.pvp.PvpManager
+name: ${project.artifactId}
+api-version: 1.14
 version: ${project.version}
 authors: [Wikijito7, cadox8]
-depend: [Vault]
+prefix: PvPM
+depend:
+  - Vault
+softdepend:
+  - WorldGuard
 
 commands:
   pvp:
