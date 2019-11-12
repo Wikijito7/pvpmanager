@@ -1,8 +1,10 @@
-main: ${project.artifactId}
-name: es.projectalpha.wc.pvp.WCPvP
+main: es.projectalpha.pvp.PvpManager
+name: PvPManager
 version: ${project.version}
 authors: [Wikijito7, cadox8]
 depend: [Vault]
+
+api-version: 1.13
 
 commands: 
     pvp:

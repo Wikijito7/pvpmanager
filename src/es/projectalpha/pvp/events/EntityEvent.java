@@ -13,11 +13,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.potion.PotionEffectType;
 
-import com.sk89q.worldguard.bukkit.WGBukkit;
-import com.sk89q.worldguard.protection.ApplicableRegionSet;
-import com.sk89q.worldguard.protection.flags.DefaultFlag;
-import com.sk89q.worldguard.protection.flags.StateFlag.State;
-
 public class EntityEvent implements Listener{
 
     private PvpManager plugin;
@@ -46,11 +41,6 @@ public class EntityEvent implements Listener{
                 Player pl = (Player)en;
 
                 if (p.hasMetadata("NPC") || pl.hasMetadata("NPC")) return;
-
-                ApplicableRegionSet set = WGBukkit.getPlugin().getRegionManager(pl.getWorld()).getApplicableRegions(pl.getLocation());
-                if (set.queryState(null, DefaultFlag.PVP) == State.DENY){
-                    return;
-                }
                 
                 if(p == pl) return;
                 if(Files.user.getBoolean("Users." + p.getName() + ".pvp") && Files.user.getBoolean("Users." + pl.getName() + ".pvp")){
@@ -79,7 +69,6 @@ public class EntityEvent implements Listener{
                     pl.sendMessage(Message.prefix + ChatColor.DARK_RED + "Has entrado en pelea con " + ChatColor.DARK_GRAY + p.getName() + ChatColor.DARK_RED + ", �no te desconectes!");
 
                 }else{
-
                     e.setCancelled(true);
                     e.setDamage(0D);
                     pl.setFireTicks(0);
@@ -113,12 +102,6 @@ public class EntityEvent implements Listener{
                 Player pl = (Player)en;
 
                 if (p.hasMetadata("NPC") || pl.hasMetadata("NPC")) return;
-
-                ApplicableRegionSet set = WGBukkit.getPlugin().getRegionManager(pl.getWorld()).getApplicableRegions(pl.getLocation());
-
-                if (set.queryState(null, DefaultFlag.PVP) == State.DENY){
-                    return;
-                }
                 
                 if(Files.user.getBoolean("Users." + p.getName() + ".pvp") && Files.user.getBoolean("Users." + pl.getName() + ".pvp")){
                 
@@ -139,7 +122,6 @@ public class EntityEvent implements Listener{
                     pl.sendMessage(Message.prefix + ChatColor.DARK_RED + " Has entrado en pelea con " + ChatColor.DARK_GRAY + p.getName());
                 
                 }else{
-
                     e.setCancelled(true);
                     e.setDamage(0D);
                     pl.setFireTicks(0);

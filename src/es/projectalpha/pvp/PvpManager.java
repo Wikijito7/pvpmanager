@@ -48,6 +48,7 @@ public class PvpManager extends JavaPlugin {
         }
 
         System.out.println("Pvpmanager ha sido cargado");
+		startCooldowns();
 	}
 
 	public void onDisable(){ System.out.println("Pvpmanager ha sido descargado"); }
