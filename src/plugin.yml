@@ -6,8 +6,6 @@ authors: [Wikijito7, cadox8]
 prefix: PvPM
 depend:
   - Vault
-softdepend:
-  - WorldGuard
 
 commands:
   pvp:
